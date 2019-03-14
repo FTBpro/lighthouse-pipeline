@@ -1,0 +1,8 @@
+#Ignore node stuff
+node_modules
+yarn-error.log
+
+# IDE
+.idea
+**/.idea
+**/.vscode
