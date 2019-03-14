@@ -4,11 +4,11 @@ Lighthouse Pipeline
 ## Run with docker compose
 
 ```bash
-docker compose up
+docker compose-up
 ```
 
 ```bash
-docker compose down
+docker compose-down
 ```
 
 ### Services
