@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipe-line/test",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
