@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const app = require('express')();
-const core = require('lighthouse-pipeline-core').default;
-const s3 = require('lighthouse-pipeline-s3-writer').default;
+const core = require('@lighthouse-pipeline/core');
 
 const port = 1337;
 

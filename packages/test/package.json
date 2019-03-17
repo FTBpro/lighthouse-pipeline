@@ -1,21 +1,19 @@
 {
-  "name": "lighthouse-pipeline-test",
-  "version": "1.0.0",
+  "name": "@lighthouse-pipe-line/test",
+  "version": "0.0.11",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
     "test": "jest",
-    "start": "node ./src/index"
+    "start": "babel-node ./src/index"
   },
   "repository": "https://github.com/FTBpro/lighthouse-pipeline.git",
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
-    "express": "^4.16.4",
-    "lighthouse-pipeline-core": "1.0.0",
-    "lighthouse-pipeline-s3-writer": "*"
+    "@lighthouse-pipeline/core": "^0.0.11",
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -28,5 +26,9 @@
   },
   "eslintConfig": {
     "extends": "eslint-config-mm"
+  },
+  "gitHead": "600d787756a3f7b4872f0e9add9f39f946672b31",
+  "publishConfig": {
+    "access": "public"
   }
 }

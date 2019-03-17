@@ -1,7 +1,7 @@
 {
   "name": "lighthouse-pipeline",
   "version": "1.0.0",
-  "main": "src/core/src/index.js",
+  "main": "packages/core/src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
     "test": "jest"
@@ -9,12 +9,13 @@
   "repository": "https://github.com/FTBpro/lighthouse-pipeline.git",
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
-  "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "lerna": "^3.13.1"
+  },
   "workspaces": [
-    "src/core",
-    "src/plugins/influxDbWriter",
-    "src/plugins/S3Writer",
-    "src/test"
+    "packges/core",
+    "packages/plugins/influxDbWriter",
+    "package/plugins/S3Writer",
+    "packges/test"
   ]
 }

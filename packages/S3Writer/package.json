@@ -1,5 +1,5 @@
 {
-  "name": "lighthouse-pipeline-s3-writer",
+  "name": "@lighthouse-pipeline/s3-writer-plugin",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
