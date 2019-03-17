@@ -14,7 +14,8 @@
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
     "express": "^4.16.4",
-    "lighthouse-pipeline-core": "1.0.0"
+    "lighthouse-pipeline-core": "1.0.0",
+    "lighthouse-pipeline-s3-writer": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

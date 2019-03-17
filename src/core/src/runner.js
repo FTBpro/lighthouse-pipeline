@@ -24,7 +24,7 @@ export function runPipeline() {
     }
 
     async run() {
-      const result = await runLighthouse();
+      const result = await runLighthouse(this.url);
 
       const pluginResults = this.plugins.map((plugin) => {
         const pluginRunner = plugin.plugin;

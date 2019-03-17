@@ -10,7 +10,7 @@ export function runLighthouse(url) {
     try {
       const chrome = await chromeLauncher.launch(chromeOptions);
       const { port } = chrome;
-      const lighthouseResults = await lighthouse(url, { port });
+      const lighthouseResults = await lighthouse(url, { port, output: ['html', 'json'] });
       await chrome.kill();
 
       resolve(lighthouseResults);

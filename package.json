@@ -14,6 +14,7 @@
   "workspaces": [
     "src/core",
     "src/plugins/influxDbWriter",
+    "src/plugins/S3Writer",
     "src/test"
   ]
 }
