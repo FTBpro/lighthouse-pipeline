@@ -30,10 +30,11 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
+    "@serverless-chrome/lambda": "^1.0.0-55",
     "chrome-launcher": "^0.10.5",
     "lighthouse": "^4.2.0"
   },
-  "gitHead": "dfd088a25d725062058e527a44dec2ad40128551",
+  "gitHead": "600d787756a3f7b4872f0e9add9f39f946672b31",
   "publishConfig": {
     "access": "public"
   }
