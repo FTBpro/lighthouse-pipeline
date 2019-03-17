@@ -20,8 +20,8 @@
     "extends": "eslint-config-mm"
   },
   "workspaces": [
-    "core",
-    "plugins/influxDbWriter",
-    "test"
+    "src/core",
+    "src/plugins/influxDbWriter",
+    "src/test"
   ]
 }
