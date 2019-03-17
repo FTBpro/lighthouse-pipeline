@@ -1,7 +1,7 @@
 {
-  "name": "lighthouse-pipeline",
+  "name": "lighthouse-pipeline-test",
   "version": "1.0.0",
-  "main": "src/core/src/index.js",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
     "test": "jest"
@@ -10,6 +10,9 @@
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
   "private": true,
+  "dependencies": {
+    "lighthouse-pipeline-core": "1.0.0"
+  },
   "devDependencies": {
     "babel-eslint": "9.0.0",
     "eslint": "^5.15.1",
@@ -18,10 +21,5 @@
   },
   "eslintConfig": {
     "extends": "eslint-config-mm"
-  },
-  "workspaces": [
-    "src/core",
-    "src/plugins/influxDbWriter",
-    "src/test"
-  ]
+  }
 }

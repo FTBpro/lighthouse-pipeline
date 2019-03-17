@@ -1,8 +1,8 @@
-import { InfluxDB } from 'influx';
+const Influx = require('influx');
 
-export function runInfluxDbPlugin() {
+export function runInfluxDbPlugin(json) {
   console.log('running influxDb plugin');
-  const influx = new InfluxDB({
+  const influx = new Influx.InfluxDB({
     host: 'localhost',
     database: 'lighthouse',
     port: 8086,
@@ -11,7 +11,7 @@ export function runInfluxDbPlugin() {
     {
       measurement: 'stats',
       tags: 'tags',
-      fields: {},
+      fields: { ...json },
     }])
     .then(() => {
       console.log('Added data to the lighthouse influxDB');
