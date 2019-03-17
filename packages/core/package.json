@@ -32,5 +32,6 @@
     "@babel/preset-env": "^7.3.4",
     "chrome-launcher": "^0.10.5",
     "lighthouse": "^4.2.0"
-  }
+  },
+  "gitHead": "f238f7f6b89e0994989a8c17731392530daed061"
 }
