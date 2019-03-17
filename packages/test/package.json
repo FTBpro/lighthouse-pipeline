@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipe-line/test",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -13,7 +13,7 @@
   "private": true,
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
-    "@lighthouse-pipeline/core": "^0.0.6",
+    "@lighthouse-pipeline/core": "^0.0.7",
     "express": "^4.16.4"
   },
   "devDependencies": {
