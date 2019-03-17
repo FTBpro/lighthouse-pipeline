@@ -1,5 +1,5 @@
 const app = require('express')();
-const core = require('lighthouse-pipeline-core');
+const core = require('@lighthouse-pipeline/core');
 
 const port = 1337;
 
