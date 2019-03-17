@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipe-line/test",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
-    "@lighthouse-pipeline/core": "^0.0.8",
+    "@lighthouse-pipeline/core": "^0.0.9",
     "express": "^4.16.4"
   },
   "devDependencies": {
