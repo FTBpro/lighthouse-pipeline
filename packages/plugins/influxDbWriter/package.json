@@ -9,7 +9,6 @@
   "repository": "https://github.com/FTBpro/lighthouse-pipeline.git",
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
