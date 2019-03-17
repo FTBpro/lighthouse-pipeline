@@ -1,9 +1,17 @@
 import { runPipeline } from './runner';
 
+jest.mock('./core.js');
 describe('core', () => {
   it('should run plugins', async () => {
-    const pipe = runPipeline().registerUrl('https://cnn.com').registerTag('my-tag').registerPlugin(() => console.log('my-plugin'));
-    const res = await pipe.run();
-    expect(res).toBe(2);
+    const myPlugin = jest.fn();
+    const myPluginConfig = {
+      myConfig: 'bla',
+    };
+    await runPipeline()
+      .registerUrl('https://cnn.com')
+      .registerTag('my-tag')
+      .registerPlugin(myPlugin, myPluginConfig)
+      .run();
+    expect(myPlugin).toHaveBeenCalledWith(myPluginConfig, 'res');
   });
 });
