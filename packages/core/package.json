@@ -35,7 +35,7 @@
     "chrome-launcher": "^0.10.5",
     "lighthouse": "^4.2.0"
   },
-  "gitHead": "f21ad535ad822377a67a49f5d30e45746a8b442b",
+  "gitHead": "9e2e490e7e50f557707c725872388ef4dfd6121a",
   "publishConfig": {
     "access": "public"
   }
