@@ -25,5 +25,9 @@
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
     "aws-sdk": "^2.422.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "f21ad535ad822377a67a49f5d30e45746a8b442b"
 }
