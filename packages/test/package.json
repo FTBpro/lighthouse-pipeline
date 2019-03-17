@@ -26,5 +26,9 @@
   },
   "eslintConfig": {
     "extends": "eslint-config-mm"
+  },
+  "gitHead": "61ee693f416f1d89d20069949ad32ec78d0b8658",
+  "publishConfig": {
+    "access": "public"
   }
 }

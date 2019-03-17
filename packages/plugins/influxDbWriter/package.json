@@ -23,5 +23,8 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.3.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
