@@ -25,8 +25,8 @@
     "lighthouse": "^4.2.0"
   },
   "workspaces": [
-    "core",
-    "plugins/influxDbWriter",
-    "test"
+    "src/core",
+    "src/plugins/influxDbWriter",
+    "src/test"
   ]
 }
