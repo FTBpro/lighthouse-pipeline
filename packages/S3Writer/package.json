@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipeline/s3-writer-plugin",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -10,7 +10,6 @@
   "repository": "https://github.com/FTBpro/lighthouse-pipeline.git",
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
