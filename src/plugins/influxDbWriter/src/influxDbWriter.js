@@ -1,4 +1,4 @@
-import { InfluxDB } from 'influx';
+import { InfluxDB, Precision } from 'influx';
 
 const getAuditsFetchTime = json => new Date(json.fetchTime).getTime();
 
@@ -9,16 +9,17 @@ const getAuditsPerformancePoints = (json) => {
   return [
     ...json.categories.performance.auditRefs.map(({ id }) => ({
       timestamp: auditsFetchTime,
-      measurement: 'A-performance-good',
+      measurement: 'performance',
       tags: { audit: id },
       fields: {
-        score: 90, // -1 for score null
-        // rawValue: json.audits[id].rawValue, // rawValue can be number or boolean
+        score: json.audits[id].score || -1, // -1 for score null
+        rawValueNumber: typeof json.audits[id].rawValue === 'number' ? json.audits[id].rawValue : -1, // rawValue can be number or boolean
+        // rawValueBoolean:
       },
     })),
     {
       timestamp: auditsFetchTime,
-      measurement: 'A-totalScores-good',
+      measurement: 'totalScores',
       tags: {},
       fields: {
         performance: getAuditsPerformanceScore(json),
@@ -37,7 +38,9 @@ const setInfluxDB = config => (
 
 export function runInfluxDbPlugin(config, json) {
   const influx = setInfluxDB(config);
-  return influx.writePoints(getAuditsPerformancePoints(json));
+  return influx.writePoints(getAuditsPerformancePoints(json), {
+    precision: Precision.Milliseconds,
+  });
 }
 
 const mockLightHouseJson = {
@@ -2483,4 +2486,3 @@ const mockLightHouseJson = {
 };
 
 runInfluxDbPlugin({}, mockLightHouseJson);
-
