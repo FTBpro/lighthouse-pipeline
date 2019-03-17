@@ -10,20 +10,7 @@
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
   "private": true,
-  "devDependencies": {
-    "babel-eslint": "9.0.0",
-    "eslint": "^5.15.1",
-    "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
-    "express": "^4.16.4",
-    "jest": "^24.5.0"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-mm"
-  },
-  "dependencies": {
-    "chrome-launcher": "^0.10.5",
-    "lighthouse": "^4.2.0"
-  },
+  "devDependencies": {},
   "workspaces": [
     "src/core",
     "src/plugins/influxDbWriter",

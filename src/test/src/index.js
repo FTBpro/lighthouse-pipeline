@@ -1,8 +1,6 @@
 const app = require('express')();
 const core = require('lighthouse-pipeline-core');
 
-console.log(core);
-
 const port = 1337;
 
 app.get('/', (req, res) => {
@@ -10,8 +8,6 @@ app.get('/', (req, res) => {
   if (!url) {
     return res.status(500).send('URL not defined');
   }
-
-  res.send(`Suck my piss ${url}`);
 });
 
 app.listen(port, () => {
