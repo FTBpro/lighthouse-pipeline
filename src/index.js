@@ -1,3 +1,3 @@
-exports.default = function lighthousePipeline() {
-  return 'hello world';
-};
+import { runPipeline } from './runner/runner';
+
+exports.default = runPipeline;
