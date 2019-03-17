@@ -14,6 +14,7 @@ function uploadObject(s3, data, key, contentType) {
   });
 }
 
+
 /**
  * 
  * @param {{credentials: string}} config credentials: path to the file containing AWS credentials
