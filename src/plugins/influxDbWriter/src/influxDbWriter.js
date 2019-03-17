@@ -9,7 +9,7 @@ const getAuditsPerformancePoints = (json) => {
   return [
     ...json.categories.performance.auditRefs.map(({ id }) => ({
       timestamp: auditsFetchTime,
-      measurement: 'performance-good',
+      measurement: 'A-performance-good',
       tags: { audit: id },
       fields: {
         score: 90, // -1 for score null
@@ -18,7 +18,7 @@ const getAuditsPerformancePoints = (json) => {
     })),
     {
       timestamp: auditsFetchTime,
-      measurement: 'totalScores-good',
+      measurement: 'A-totalScores-good',
       tags: {},
       fields: {
         performance: getAuditsPerformanceScore(json),
@@ -37,7 +37,6 @@ const setInfluxDB = config => (
 
 export function runInfluxDbPlugin(config, json) {
   const influx = setInfluxDB(config);
-  console.log(getAuditsPerformancePoints(json));
   return influx.writePoints(getAuditsPerformancePoints(json));
 }
 
@@ -2484,3 +2483,4 @@ const mockLightHouseJson = {
 };
 
 runInfluxDbPlugin({}, mockLightHouseJson);
+
