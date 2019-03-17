@@ -4,16 +4,22 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
-    "test": "jest"
+    "test": "jest",
+    "start": "node ./src/index"
   },
   "repository": "https://github.com/FTBpro/lighthouse-pipeline.git",
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@babel/preset-env": "^7.3.4",
+    "express": "^4.16.4",
     "lighthouse-pipeline-core": "1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
     "babel-eslint": "9.0.0",
     "eslint": "^5.15.1",
     "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
