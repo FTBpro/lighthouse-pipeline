@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipeline/core",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -25,7 +25,9 @@
     "extends": "eslint-config-mm"
   },
   "jest": {
-    "setupFiles": ["<rootDir>/../../node_modules/regenerator-runtime/runtime"]
+    "setupFiles": [
+      "<rootDir>/../../node_modules/regenerator-runtime/runtime"
+    ]
   },
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
