@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
   runPipeline()
     .registerUrl(url)
-    .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test' })
+    .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test', bucket: 'minutemedia-lighthouse' })
     .registerPlugin(runInfluxDbPlugin, {
       host: 'localhost',
       database: 'lighthouse',
