@@ -30,7 +30,7 @@ export function runPipeline() {
 
       const pluginResults = this.plugins.map((plugin) => {
         const pluginRunner = plugin.plugin;
-        return pluginRunner(plugin.config, result);
+        return pluginRunner(plugin.config, result, this.context);
       });
 
       return Promise.all(pluginResults);
