@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     })
     .run()
     .then((response) => {
-      res.send('Look at meeee!!!');
+      res.send(`Done: ${new Date()}`);
     });
 });
 
