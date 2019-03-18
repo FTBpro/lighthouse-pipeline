@@ -28,8 +28,10 @@ export function runS3Plugin(config, data) {
 
   const now = (new Date()).toISOString();
 
+  const [html, json] = data.report;
+
   return Promise.all([
-    uploadObject(s3, data.report[0], `${path}/${now}/lighthouse.html`, 'text/html'),
-    uploadObject(s3, data.report[1], `${path}/${now}/lighthouse.json`, 'application/json'),
+    uploadObject(s3, html, `${path}/${now}/lighthouse.html`, 'text/html'),
+    uploadObject(s3, json, `${path}/${now}/lighthouse.json`, 'application/json'),
   ]);
 }
