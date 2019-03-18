@@ -16,7 +16,8 @@ app.get('/', (req, res) => {
     .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test' })
     .run()
     .then((response) => {
-      res.send(`Done: ${new Date()}`);
+      const [html, json] = response[0];
+      res.send(`Done:<br /><a href="${html.Location}">HTML</a><br /><a href="${json.Location}">JSON</a>`);
     });
 });
 
