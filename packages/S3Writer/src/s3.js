@@ -1,10 +1,10 @@
 import AWS from 'aws-sdk';
 
-function uploadObject(s3, data, key, contentType) {
+function uploadObject(s3, bucket, data, key, contentType) {
   return new Promise((resolve, reject) => {
     s3.upload({
       Body: data,
-      Bucket: 'minutemedia-lighthouse',
+      Bucket: bucket,
       ContentType: contentType,
       Key: key,
     }, (err, data) => {
@@ -16,11 +16,11 @@ function uploadObject(s3, data, key, contentType) {
 
 /**
  * 
- * @param {{path: string}} config {path: path to the file containing AWS credentials}
+ * @param {{credentials: string, path: string, bucket: string}} config
  * @param {{lhr: {}, report: {}}} data the data returned from lighthouse
  */
 export function runS3Plugin(config, data) {
-  const { path } = config;
+  const { path, bucket } = config;
 
   AWS.config.loadFromPath(config.credentials);
 
@@ -31,7 +31,7 @@ export function runS3Plugin(config, data) {
   const [html, json] = data.report;
 
   return Promise.all([
-    uploadObject(s3, html, `${path}/${now}/lighthouse.html`, 'text/html'),
-    uploadObject(s3, json, `${path}/${now}/lighthouse.json`, 'application/json'),
+    uploadObject(s3, bucket, html, `${path}/${now}/lighthouse.html`, 'text/html'),
+    uploadObject(s3, bucket, json, `${path}/${now}/lighthouse.json`, 'application/json'),
   ]);
 }
