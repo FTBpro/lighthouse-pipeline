@@ -1,0 +1,33 @@
+{
+  "name": "@lighthouse-pipeline/s3-writer-plugin",
+  "version": "0.0.16",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint ./src/.",
+    "test": "jest",
+    "build": "babel ./src --out-dir ./dist"
+  },
+  "repository": "https://github.com/FTBpro/lighthouse-pipeline.git",
+  "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-eslint": "9.0.0",
+    "babel-jest": "^24.5.0",
+    "eslint": "^5.15.1",
+    "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
+    "jest": "^24.5.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-mm"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.3.4",
+    "aws-sdk": "^2.422.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "9e2e490e7e50f557707c725872388ef4dfd6121a"
+}

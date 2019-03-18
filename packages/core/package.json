@@ -1,20 +1,22 @@
 {
-  "name": "lighthouse-pipeline-influx-db-writer",
-  "version": "1.0.0",
-  "main": "src/index.js",
+  "name": "@lighthouse-pipeline/core",
+  "version": "0.0.16",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
-    "test": "jest"
+    "test": "jest",
+    "build": "babel ./src --out-dir ./dist"
   },
   "repository": "https://github.com/FTBpro/lighthouse-pipeline.git",
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "babel-eslint": "9.0.0",
     "babel-jest": "^24.5.0",
+    "babel-polyfill": "^6.26.0",
     "eslint": "^5.15.1",
     "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
     "jest": "^24.5.0"
@@ -22,10 +24,19 @@
   "eslintConfig": {
     "extends": "eslint-config-mm"
   },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/../../node_modules/regenerator-runtime/runtime"
+    ]
+  },
   "dependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
-    "influx": "^5.0.7"
+    "@serverless-chrome/lambda": "^1.0.0-55",
+    "chrome-launcher": "^0.10.5",
+    "lighthouse": "^4.2.0"
+  },
+  "gitHead": "9e2e490e7e50f557707c725872388ef4dfd6121a",
+  "publishConfig": {
+    "access": "public"
   }
 }
