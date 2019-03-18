@@ -6,12 +6,7 @@ export function runLighthouse(url) {
   return new Promise(async (resolve, reject) => {
     const chromeFlags = [
       '--headless',
-      '--disable-dev-shm-usage',
       '--disable-gpu',
-      '--no-zygote',
-      '--no-sandbox',
-      '--single-process',
-      '--hide-scrollbars',
     ];
 
     try {
