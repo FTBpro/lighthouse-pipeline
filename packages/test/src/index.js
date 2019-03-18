@@ -1,6 +1,6 @@
 import { runPipeline } from '@lighthouse-pipeline/core';
 import { runInfluxDbPlugin } from '@lighthouse-pipeline/influx-db-writer-plugin';
-// import { runS3Plugin } from '@lighthouse-pipeline/s3-writer-plugin';
+import { runS3Plugin } from '@lighthouse-pipeline/s3-writer-plugin';
 
 const path = require('path');
 const app = require('express')();
@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
   runPipeline()
     .registerUrl(url)
-    // .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test' })
+    .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test' })
     .registerPlugin(runInfluxDbPlugin, {
       host: 'localhost',
       database: 'lighthouse',
