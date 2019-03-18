@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipeline/core",
-  "version": "0.0.16",
+  "version": "0.0.20",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -16,7 +16,6 @@
     "@babel/preset-env": "^7.3.4",
     "babel-eslint": "9.0.0",
     "babel-jest": "^24.5.0",
-    "babel-polyfill": "^6.26.0",
     "eslint": "^5.15.1",
     "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
     "jest": "^24.5.0"
@@ -30,8 +29,8 @@
     ]
   },
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.4",
-    "@serverless-chrome/lambda": "^1.0.0-55",
     "chrome-launcher": "^0.10.5",
     "lighthouse": "^4.2.0"
   },

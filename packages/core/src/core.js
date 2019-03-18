@@ -1,4 +1,4 @@
-const chromePath = require.resolve('@serverless-chrome/lambda/dist/headless-chromium');
+// const chromePath = require.resolve('@serverless-chrome/lambda/dist/headless-chromium');
 const lighthouse = require('lighthouse');
 const chromeLauncher = require('chrome-launcher');
 
@@ -15,7 +15,7 @@ export function runLighthouse(url) {
     ];
 
     try {
-      const chrome = await chromeLauncher.launch({ chromeFlags, chromePath });
+      const chrome = await chromeLauncher.launch({ chromeFlags });
       const { port } = chrome;
       const lighthouseResults = await lighthouse(url, { port, output: ['html', 'json'] });
       await chrome.kill();
