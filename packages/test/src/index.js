@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test' })
     .run()
     .then((response) => {
-      res.send('Look at meeee!!!');
+      res.send(`Done: ${new Date()}`);
     });
 });
 
