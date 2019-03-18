@@ -1,4 +1,19 @@
 {
+  "__inputs": [],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "6.0.1"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,40 +30,47 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
+  "id": null,
   "links": [],
   "panels": [
     {
       "aliasColors": {},
       "bars": false,
+      "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "fill": 1,
+      "decimals": null,
+      "fill": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
         "y": 0
       },
+      "hideTimeOverride": true,
       "id": 2,
       "legend": {
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
+        "rightSide": true,
         "show": true,
         "total": false,
         "values": false
       },
       "lines": true,
       "linewidth": 1,
-      "nullPointMode": "null",
+      "links": [],
+      "nullPointMode": "connected",
       "paceLength": 10,
       "percentage": false,
       "pointradius": 2,
-      "points": false,
+      "points": true,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {}
+      ],
       "stack": false,
       "steppedLine": false,
       "targets": [
@@ -67,15 +89,18 @@
               "type": "fill"
             }
           ],
+          "measurement": "total-scores",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"performance\") FROM \"total-scores\" WHERE $timeFilter GROUP BY time($__interval) fill(null)\n",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "performance"
                 ],
                 "type": "field"
               },
@@ -92,7 +117,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "Total Scores",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -108,11 +133,12 @@
       },
       "yaxes": [
         {
+          "decimals": null,
           "format": "short",
           "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
+          "max": "1",
+          "min": "0",
           "show": true
         },
         {
@@ -130,7 +156,6 @@
       }
     }
   ],
-  "refresh": false,
   "schemaVersion": 18,
   "style": "dark",
   "tags": [],
@@ -138,8 +163,8 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
-    "to": "now"
+    "from": "now/d",
+    "to": "now/d"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -167,7 +192,7 @@
     ]
   },
   "timezone": "",
-  "title": "Lighthouse",
-  "uid": "rVn-jPjik",
-  "version": 3
+  "title": "Total Scores",
+  "uid": "BuG5MKqmk",
+  "version": 1
 }
