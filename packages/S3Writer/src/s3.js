@@ -21,16 +21,17 @@ function uploadObject(s3, data, key, contentType) {
  */
 export function runS3Plugin(config, data) {
   const { path } = config;
-  console.log('S3 report:', data.report);
-  console.log('typeof:', typeof data.report);
+
   AWS.config.loadFromPath(config.credentials);
 
   const s3 = new AWS.S3();
 
   const now = (new Date()).toISOString();
-  console.log('writing to S3...');
+
+  const [html, json] = data.report;
+
   return Promise.all([
-    uploadObject(s3, JSON.stringify(data.lhr), `${path}/${now}/lighthouse.json`, 'application/json'),
-    // uploadObject(s3, data.report, `${path}/${now}/lighthouse.html`, 'text/html'),
+    uploadObject(s3, html, `${path}/${now}/lighthouse.html`, 'text/html'),
+    uploadObject(s3, json, `${path}/${now}/lighthouse.json`, 'application/json'),
   ]);
 }
