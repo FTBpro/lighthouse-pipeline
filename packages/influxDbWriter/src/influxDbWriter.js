@@ -23,32 +23,11 @@ const getAuditsPerformancePoints = (json) => {
       timestamp: auditsFetchTime,
       measurement: 'total-scores',
       tags: {
-        audit: 'performance',
         site: url,
       },
       fields: {
         performance: json.categories.seo.score,
-      },
-    },
-    {
-      timestamp: auditsFetchTime,
-      measurement: 'total-scores',
-      tags: {
-        audit: 'seo',
-        site: url,
-      },
-      fields: {
         seo: json.categories.seo.score,
-      },
-    },
-    {
-      timestamp: auditsFetchTime,
-      measurement: 'total-scores',
-      tags: {
-        audit: 'best-practices',
-        site: url,
-      },
-      fields: {
         bestPractices: json.categories['best-practices'].score,
       },
     },
