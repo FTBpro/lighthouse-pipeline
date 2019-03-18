@@ -16,7 +16,6 @@
     "@babel/preset-env": "^7.3.4",
     "babel-eslint": "9.0.0",
     "babel-jest": "^24.5.0",
-    "babel-polyfill": "^6.26.0",
     "eslint": "^5.15.1",
     "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
     "jest": "^24.5.0"
@@ -31,6 +30,7 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
     "chrome-launcher": "^0.10.5",
     "lighthouse": "^4.2.0"
   },
