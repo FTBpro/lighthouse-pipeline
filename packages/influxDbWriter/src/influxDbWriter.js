@@ -11,62 +11,62 @@ const getAuditsPerformancePoints = (json) => {
       timestamp: auditsFetchTime,
       measurement: 'interactive',
       tags: {
-        audit: 'performance'
+        audit: 'performance',
       },
       fields: {
-        score: json.audits['interactive'].score,
-        timeMS: json.audits['interactive'].rawValue
+        score: json.audits.interactive.score,
+        timeMS: json.audits.interactive.rawValue,
       },
     },
     {
       timestamp: auditsFetchTime,
       measurement: 'first-meaningful-paint',
       tags: {
-        audit: 'performance'
+        audit: 'performance',
       },
       fields: {
         score: json.audits['first-meaningful-paint'].score,
-        timeMS: json.audits['first-meaningful-paint'].rawValue
+        timeMS: json.audits['first-meaningful-paint'].rawValue,
       },
     },
     {
       timestamp: auditsFetchTime,
       measurement: 'estimated-input-latency',
       tags: {
-        audit: 'performance'
+        audit: 'performance',
       },
       fields: {
         score: json.audits['estimated-input-latency'].score,
-        timeMS: json.audits['estimated-input-latency'].rawValue
+        timeMS: json.audits['estimated-input-latency'].rawValue,
       },
     },
     {
       timestamp: auditsFetchTime,
       measurement: 'first-cpu-idle',
       tags: {
-        audit: 'performance'
+        audit: 'performance',
       },
       fields: {
         score: json.audits['first-cpu-idle'].score,
-        timeMS: json.audits['first-cpu-idle'].rawValue
+        timeMS: json.audits['first-cpu-idle'].rawValue,
       },
     },
     {
       timestamp: auditsFetchTime,
       measurement: 'first-contentful-paint',
       tags: {
-        audit: 'performance'
+        audit: 'performance',
       },
       fields: {
         score: json.audits['first-contentful-paint'].score,
-        timeMS: json.audits['first-contentful-paint'].rawValue
+        timeMS: json.audits['first-contentful-paint'].rawValue,
       },
     },
     {
       timestamp: auditsFetchTime,
       measurement: 'total-scores',
       tags: {
-        audit: 'performance'
+        audit: 'performance',
       },
       fields: {
         performance: getAuditsPerformanceScore(json),
@@ -75,13 +75,7 @@ const getAuditsPerformancePoints = (json) => {
   ];
 };
 
-const setInfluxDB = config => (
-  new InfluxDB({
-    host: 'localhost',
-    database: 'lighthouse',
-    port: 8086,
-  })
-);
+const setInfluxDB = config => (new InfluxDB(config));
 
 export function runInfluxDbPlugin(config, json) {
   const influx = setInfluxDB(config);
@@ -2532,4 +2526,4 @@ const mockLightHouseJson = {
   },
 };
 
-runInfluxDbPlugin({}, mockLightHouseJson);
+// runInfluxDbPlugin({}, mockLightHouseJson);

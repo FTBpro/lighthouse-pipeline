@@ -1,3 +1,1 @@
-import { runInfluxDbPlugin } from './influxDbWriter';
-
-exports.default = runInfluxDbPlugin;
+export { runInfluxDbPlugin } from './influxDbWriter';

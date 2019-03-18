@@ -1,10 +1,11 @@
 {
   "name": "@lighthouse-pipeline/influx-db-writer-plugin",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
-    "test": "jest"
+    "test": "jest",
+    "build": "babel ./src --out-dir ./dist"
   },
   "repository": "https://github.com/FTBpro/lighthouse-pipeline.git",
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
