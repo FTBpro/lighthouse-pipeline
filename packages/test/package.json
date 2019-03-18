@@ -15,6 +15,7 @@
     "@lighthouse-pipeline/core": "^0.0.21",
     "@lighthouse-pipeline/influx-db-writer-plugin": "^0.0.21",
     "@lighthouse-pipeline/s3-writer-plugin": "^0.0.21",
+    "@lighthouse-pipeline/slack-plugin": "^0.0.21",
     "express": "^4.16.4"
   },
   "devDependencies": {

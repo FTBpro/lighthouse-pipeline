@@ -19,7 +19,7 @@ function uploadObject(s3, bucket, data, key, contentType) {
  * @param {{credentials: string, path: string, bucket: string}} config
  * @param {{lhr: {}, report: {}}} data the data returned from lighthouse
  */
-export function runS3Plugin(config, data, context) {
+export async function runS3Plugin(config, data, context) {
   const { path, bucket } = config;
 
   AWS.config.loadFromPath(config.credentials);
@@ -30,8 +30,13 @@ export function runS3Plugin(config, data, context) {
 
   const [html, json] = data.report;
 
-  return Promise.all([
-    uploadObject(s3, bucket, html, `${path}/${now}/lighthouse.html`, 'text/html'),
-    uploadObject(s3, bucket, json, `${path}/${now}/lighthouse.json`, 'application/json'),
-  ]);
+  const htmlResult = await uploadObject(s3, bucket, html, `${path}/${now}/lighthouse.html`, 'text/html');
+  const jsonResult = await uploadObject(s3, bucket, json, `${path}/${now}/lighthouse.json`, 'application/json');
+
+  context.S3 = {
+    htmlResult,
+    jsonResult
+  };
+
+  return [htmlResult, jsonResult];
 }

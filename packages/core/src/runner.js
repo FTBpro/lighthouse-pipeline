@@ -26,14 +26,18 @@ export function runPipeline() {
     }
 
     async run() {
-      const result = await runLighthouse(this.url);
+      return new Promise(async (resolve, reject) => {
+        const result = await runLighthouse(this.url);
+        const pluginResults = [];
 
-      const pluginResults = this.plugins.map((plugin) => {
-        const pluginRunner = plugin.plugin;
-        return pluginRunner(plugin.config, result, this.context);
+        for (let i = 0; i < this.plugins.length; i++) {
+          const plugin = this.plugins[i];
+          const pluginRunner = plugin.plugin;
+          pluginResults.push(await pluginRunner(plugin.config, result, this.context));
+        }
+
+        resolve(pluginResults);
       });
-
-      return Promise.all(pluginResults);
     }
   }();
 }
