@@ -1,12 +1,14 @@
+import { runPipeline } from '@lighthouse-pipeline/core';
+import { runInfluxDbPlugin } from '@lighthouse-pipeline/influx-db-writer-plugin';
+import { runS3Plugin } from '@lighthouse-pipeline/s3-writer-plugin';
+
 const path = require('path');
 const app = require('express')();
-import { runPipeline } from '@lighthouse-pipeline/core';
-import { runS3Plugin } from '@lighthouse-pipeline/s3-writer-plugin';
 
 const port = 1337;
 
 app.get('/', (req, res) => {
-  const url = req.query.url;
+  const { url } = req.query;
   if (!url) {
     return res.status(500).send('URL not defined');
   }
@@ -14,6 +16,11 @@ app.get('/', (req, res) => {
   runPipeline()
     .registerUrl(url)
     .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test' })
+    .registerPlugin(runInfluxDbPlugin, {
+      host: 'localhost',
+      database: 'lighthouse',
+      port: 8086,
+    })
     .run()
     .then((response) => {
       res.send(`Done: ${new Date()}`);

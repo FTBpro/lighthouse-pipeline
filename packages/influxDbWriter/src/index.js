@@ -1,0 +1,1 @@
+export { runInfluxDbPlugin } from './influxDbWriter';
