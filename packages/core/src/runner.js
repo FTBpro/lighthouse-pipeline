@@ -5,7 +5,9 @@ export function runPipeline() {
     constructor() {
       this.plugins = [];
       this.url = '';
-      this.tag = 'default tag';
+      this.context = {
+        tag: 'default tag',
+      };
     }
 
     registerUrl(inputUrl) {
@@ -14,7 +16,7 @@ export function runPipeline() {
     }
 
     registerTag(inputTag) {
-      this.tag = inputTag;
+      this.context.tag = inputTag;
       return this;
     }
 
@@ -28,7 +30,7 @@ export function runPipeline() {
 
       const pluginResults = this.plugins.map((plugin) => {
         const pluginRunner = plugin.plugin;
-        return pluginRunner(plugin.config, result);
+        return pluginRunner(plugin.config, result, this.context);
       });
 
       return Promise.all(pluginResults);
