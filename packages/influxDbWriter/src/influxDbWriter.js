@@ -44,6 +44,13 @@ const getPerformanceAuditsPoints = (json, performanceAudits) => {
     },
     {
       timestamp: auditsFetchTime,
+      measurement: 'performance',
+      fields: {
+        speedIndex: json.audits['speed-index'].rawValue
+      },
+    },
+    {
+      timestamp: auditsFetchTime,
       measurement: 'total-scores',
       tags: {
         audit: 'performance'
@@ -72,7 +79,8 @@ export function runInfluxDbPlugin(config, result) {
     'first-cpu-idle',
     'estimated-input-latency',
     'first-meaningful-paint',
-    'interactive'
+    'interactive',
+    'speed-index'
   ];
   return influx.writePoints(getPerformanceAuditsPoints(json, performanceAudits), {
     precision: Precision.Milliseconds,
