@@ -1,5 +1,5 @@
 {
-  "name": "@lighthouse-pipeline/s3-writer-plugin",
+  "name": "@lighthouse-pipeline/slack-plugin",
   "version": "0.0.21",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
-    "aws-sdk": "^2.422.0"
+    "request": "^2.88.0"
   },
   "publishConfig": {
     "access": "public"

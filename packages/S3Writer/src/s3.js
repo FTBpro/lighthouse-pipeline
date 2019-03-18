@@ -19,7 +19,7 @@ function uploadObject(s3, bucket, data, key, contentType) {
  * @param {{credentials: string, path: string, bucket: string}} config
  * @param {{lhr: {}, report: {}}} data the data returned from lighthouse
  */
-export function runS3Plugin(config, data) {
+export function runS3Plugin(config, data, context) {
   const { path, bucket } = config;
 
   AWS.config.loadFromPath(config.credentials);

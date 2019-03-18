@@ -8,12 +8,15 @@ const app = require('express')();
 const port = 1337;
 
 app.get('/', (req, res) => {
-  const { url } = req.query;
+  const { url, tag } = req.query;
   if (!url) {
     return res.status(500).send('URL not defined');
   }
 
+  console.log('running pipeline');
+
   runPipeline()
+    .registerTag(tag)
     .registerUrl(url)
     .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test', bucket: 'minutemedia-lighthouse' })
     .registerPlugin(runInfluxDbPlugin, {
@@ -23,8 +26,13 @@ app.get('/', (req, res) => {
     })
     .run()
     .then((response) => {
-      const [html, json] = response[0];
-      res.send(`Done:<br /><a href="${html.Location}">HTML</a><br /><a href="${json.Location}">JSON</a>`);
+      console.log(response);
+      if (response.length >= 2) {
+        const [html, json] = response[0];
+        res.send(`Done:<br /><a href="${html.Location}">HTML</a><br /><a href="${json.Location}">JSON</a>`);
+      } else {
+        res.send('All done, boy!');
+      }
     });
 });
 
