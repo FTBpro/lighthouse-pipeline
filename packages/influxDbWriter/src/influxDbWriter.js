@@ -77,7 +77,8 @@ const getAuditsPerformancePoints = (json) => {
 
 const setInfluxDB = config => (new InfluxDB(config));
 
-export function runInfluxDbPlugin(config, json) {
+export function runInfluxDbPlugin(config, result) {
+  const json = JSON.parse(result.report[1]);
   const influx = setInfluxDB(config);
   return influx.writePoints(getAuditsPerformancePoints(json), {
     precision: Precision.Milliseconds,
