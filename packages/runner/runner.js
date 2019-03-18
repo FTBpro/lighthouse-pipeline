@@ -1,5 +1,5 @@
 import { runLighthouse } from '../core/core';
-import { runInfluxDbPlugin } from '../plugins/influxDbWriter/src';
+import { runInfluxDbPlugin } from '../influxDbWriter/src';
 
 export function runPipeline() {
   // run core
