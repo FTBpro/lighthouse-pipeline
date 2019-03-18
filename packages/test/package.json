@@ -1,6 +1,6 @@
 {
-  "name": "@lighthouse-pipe-line/test",
-  "version": "0.0.14",
+  "name": "@lighthouse-pipeline/test",
+  "version": "0.0.16",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -12,8 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
-    "@lighthouse-pipeline/core": "^0.0.11",
-    "@lighthouse-pipeline/s3-writer-plugin": "^0.0.11",
+    "@lighthouse-pipeline/core": "^0.0.16",
+    "@lighthouse-pipeline/s3-writer-plugin": "^0.0.16",
     "express": "^4.16.4"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
   "eslintConfig": {
     "extends": "eslint-config-mm"
   },
-  "gitHead": "b448e8a2768f78829a2227f6e975b3332f323b6f",
+  "gitHead": "9e2e490e7e50f557707c725872388ef4dfd6121a",
   "publishConfig": {
     "access": "public"
   }

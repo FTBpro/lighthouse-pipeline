@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipeline/s3-writer-plugin",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -29,5 +29,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "b448e8a2768f78829a2227f6e975b3332f323b6f"
+  "gitHead": "9e2e490e7e50f557707c725872388ef4dfd6121a"
 }

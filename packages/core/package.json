@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipeline/core",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -35,7 +35,7 @@
     "chrome-launcher": "^0.10.5",
     "lighthouse": "^4.2.0"
   },
-  "gitHead": "b448e8a2768f78829a2227f6e975b3332f323b6f",
+  "gitHead": "9e2e490e7e50f557707c725872388ef4dfd6121a",
   "publishConfig": {
     "access": "public"
   }
