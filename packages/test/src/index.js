@@ -2,7 +2,7 @@ const path = require('path');
 const app = require('express')();
 import { runPipeline } from '@lighthouse-pipeline/core';
 import { runInfluxDbPlugin } from '@lighthouse-pipeline/influx-db-writer-plugin'
-// const s3 = require('@lighthouse-pipeline/s3-writer-plugin');
+import { runS3Plugin } from '@lighthouse-pipeline/s3-writer-plugin';
 
 const port = 1337;
 
@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
   runPipeline()
     .registerUrl(url)
-    // .registerPlugin(s3, { credentials: path.join(__dirname, '../.env'), path: 'test' })
+    // .registerPlugin(runS3Plugin, { credentials: path.join(__dirname, '../.env'), path: 'test' })
     .registerPlugin(runInfluxDbPlugin)
     .run()
     .then((response) => {

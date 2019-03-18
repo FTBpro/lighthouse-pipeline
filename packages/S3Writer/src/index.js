@@ -1,3 +1,1 @@
-import { runS3Plugin } from './s3';
-
-exports.default = runS3Plugin;
+export { runS3Plugin } from './s3';
