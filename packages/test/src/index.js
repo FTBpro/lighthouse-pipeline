@@ -1,9 +1,8 @@
-const fs = require('fs');
 const path = require('path');
 const app = require('express')();
-const core = require('@lighthouse-pipeline/core');
-const s3 = require('@lighthouse-pipeline/s3-writer-plugin');
-const influxDb = require('@lighthouse-pipeline/influx-db-writer-plugin');
+import { runPipeline } from '@lighthouse-pipeline/core';
+import { runInfluxDbPlugin } from '@lighthouse-pipeline/influx-db-writer-plugin'
+// const s3 = require('@lighthouse-pipeline/s3-writer-plugin');
 
 const port = 1337;
 
@@ -13,10 +12,10 @@ app.get('/', (req, res) => {
     return res.status(500).send('URL not defined');
   }
 
-  core()
+  runPipeline()
     .registerUrl(url)
-    .registerPlugin(s3, { credentials: path.join(__dirname, '../.env'), path: 'test' })
-    .registerPlugin(influxDb)
+    // .registerPlugin(s3, { credentials: path.join(__dirname, '../.env'), path: 'test' })
+    .registerPlugin(runInfluxDbPlugin)
     .run()
     .then((response) => {
       res.send('Look at meeee!!!');
