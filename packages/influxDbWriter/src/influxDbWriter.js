@@ -1,9 +1,5 @@
 import { InfluxDB, Precision } from 'influx';
 
-const getAuditsFetchTime = json => new Date(json.fetchTime).getTime();
-
-const getAuditsPerformanceScore = json => json.categories.performance.score;
-
 const getAuditsPerformancePoints = (json) => {
   const auditsFetchTime = Date.now();
   const url = json.requestedUrl;
@@ -12,71 +8,27 @@ const getAuditsPerformancePoints = (json) => {
       timestamp: auditsFetchTime,
       measurement: 'performance',
       tags: {
-        site: url
-      },
-      fields: {
-        interactive: json.audits.interactive.rawValue,
-      },
-    },
-    {
-      timestamp: auditsFetchTime,
-      measurement: 'performance',
-      tags: {
-        site: url
-      },
-      fields: {
-        firstMeaningfulPaint: json.audits['first-meaningful-paint'].rawValue,
-      },
-    },
-    {
-      timestamp: auditsFetchTime,
-      measurement: 'performance',
-      tags: {
-        site: url
-      },
-      fields: {
-        estimatediInputLatency: json.audits['estimated-input-latency'].rawValue,
-      },
-    },
-    {
-      timestamp: auditsFetchTime,
-      measurement: 'performance',
-      tags: {
-        site: url
-      },
-      fields: {
-        firstCpuIdle: json.audits['first-cpu-idle'].rawValue,
-      },
-    },
-    {
-      timestamp: auditsFetchTime,
-      measurement: 'performance',
-      tags: {
-        site: url
-      },
-      fields: {
-        firstContentfulPaint: json.audits['first-contentful-paint'].rawValue,
-      },
-    },
-    {
-      timestamp: auditsFetchTime,
-      measurement: 'performance',
-      tags: {
-        site: url
+        site: url,
       },
       fields: {
         speedIndex: json.audits['speed-index'].rawValue,
+        firstContentfulPaint: json.audits['first-contentful-paint'].rawValue,
+        firstCpuIdle: json.audits['first-cpu-idle'].rawValue,
+        estimatedInputLatency: json.audits['estimated-input-latency'].rawValue,
+        firstMeaningfulPaint: json.audits['first-meaningful-paint'].rawValue,
+        interactive: json.audits.interactive.rawValue,
       },
     },
     {
       timestamp: auditsFetchTime,
       measurement: 'total-scores',
       tags: {
-        audit: 'performance',
-        site: url
+        site: url,
       },
       fields: {
-        performance: getAuditsPerformanceScore(json),
+        performance: json.categories.seo.score,
+        seo: json.categories.seo.score,
+        bestPractices: json.categories['best-practices'].score,
       },
     },
   ];
@@ -91,4 +43,3 @@ export function runInfluxDbPlugin(config, result) {
     precision: Precision.Milliseconds,
   });
 }
-
