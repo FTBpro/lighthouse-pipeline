@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipeline/slack-plugin",
-  "version": "0.0.21",
+  "version": "0.0.23",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
