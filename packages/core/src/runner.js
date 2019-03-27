@@ -8,10 +8,16 @@ export function runPipeline() {
       this.context = {
         tag: 'default tag',
       };
+      this.chromePath;
     }
 
     registerUrl(inputUrl) {
       this.url = inputUrl;
+      return this;
+    }
+
+    registerChromePath(chromePath) {
+      this.chromePath = chromePath;
       return this;
     }
 
@@ -26,7 +32,7 @@ export function runPipeline() {
     }
 
     async run() {
-      const result = await runLighthouse(this.url);
+      const result = await runLighthouse(this.url, this.chromePath);
 
       const pluginResults = this.plugins.map((plugin) => {
         const pluginRunner = plugin.plugin;
