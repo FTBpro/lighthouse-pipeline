@@ -27,7 +27,7 @@ const getAuditsPerformancePoints = (json, tag) => {
         tag,
       },
       fields: {
-        performance: json.categories.seo.score,
+        performance: json.categories.performance.score,
         seo: json.categories.seo.score,
         bestPractices: json.categories['best-practices'].score,
       },
