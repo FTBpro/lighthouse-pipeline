@@ -1,6 +1,6 @@
 {
   "name": "@lighthouse-pipeline/test",
-  "version": "0.0.22",
+  "version": "0.0.26",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/.",
@@ -12,9 +12,9 @@
   "license": "MIT",
   "dependencies": {
     "@babel/preset-env": "^7.3.4",
-    "@lighthouse-pipeline/core": "^0.0.22",
-    "@lighthouse-pipeline/influx-db-writer-plugin": "^0.0.22",
-    "@lighthouse-pipeline/s3-writer-plugin": "^0.0.22",
+    "@lighthouse-pipeline/core": "^0.0.26",
+    "@lighthouse-pipeline/influx-db-writer-plugin": "^0.0.26",
+    "@lighthouse-pipeline/s3-writer-plugin": "^0.0.26",
     "express": "^4.16.4"
   },
   "devDependencies": {

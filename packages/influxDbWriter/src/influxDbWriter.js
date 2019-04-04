@@ -1,6 +1,6 @@
 import { InfluxDB, Precision } from 'influx';
 
-const getAuditsPerformancePoints = (json) => {
+const getAuditsPerformancePoints = (json, tag) => {
   const auditsFetchTime = Date.now();
   const url = json.requestedUrl;
   return [
@@ -24,6 +24,7 @@ const getAuditsPerformancePoints = (json) => {
       measurement: 'total-scores',
       tags: {
         site: url,
+        tag,
       },
       fields: {
         performance: json.categories.seo.score,
@@ -36,10 +37,10 @@ const getAuditsPerformancePoints = (json) => {
 
 const setInfluxDB = config => (new InfluxDB(config));
 
-export function runInfluxDbPlugin(config, result) {
+export function runInfluxDbPlugin(config, result, context) {
   const json = JSON.parse(result.report[1]);
   const influx = setInfluxDB(config);
-  return influx.writePoints(getAuditsPerformancePoints(json), {
+  return influx.writePoints(getAuditsPerformancePoints(json, context.tag), {
     precision: Precision.Milliseconds,
   });
 }
