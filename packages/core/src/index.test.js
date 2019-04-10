@@ -12,6 +12,6 @@ describe('core', () => {
       .registerTag('my-tag')
       .registerPlugin(myPlugin, myPluginConfig)
       .run();
-    expect(myPlugin).toHaveBeenCalledWith(myPluginConfig, 'res');
+    expect(myPlugin).toHaveBeenCalledWith(myPluginConfig, 'res', {"tag": "my-tag"});
   });
 });
