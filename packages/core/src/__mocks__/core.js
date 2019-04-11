@@ -1,3 +1,1 @@
-export function runLighthouse(url) {
-  return Promise.resolve('res');
-}
+export const runLighthouse = jest.fn().mockImplementation(() => Promise.resolve('res'));
