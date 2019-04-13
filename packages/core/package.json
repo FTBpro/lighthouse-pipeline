@@ -19,6 +19,7 @@
     "eslint": "^5.15.1",
     "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
     "jest": "^24.5.0",
+    "jest-extended": "^0.11.1",
     "regenerator-runtime": "^0.13.2"
   },
   "eslintConfig": {
@@ -27,7 +28,8 @@
   "jest": {
     "setupFiles": [
       "./jest-setup.js"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "jest-extended"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",

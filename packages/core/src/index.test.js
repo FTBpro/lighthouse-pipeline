@@ -35,7 +35,7 @@ describe('core', () => {
     expect(myPlugin).toHaveBeenCalledWith(myPluginConfig, 'res', {tag: 'default tag'});
   });
 
-  it('should run a plugins in right order with corresponding params', async () => {
+  it('should run each plugin once and in the right order with corresponding params', async () => {
     const myPlugin1 = jest.fn();
     const myPluginConfig1 = {
       myConfig: 'bla1',
@@ -63,5 +63,7 @@ describe('core', () => {
     expect(myPlugin1).toHaveBeenCalledTimes(1);
     expect(myPlugin2).toHaveBeenCalledTimes(1);
     expect(myPlugin3).toHaveBeenCalledTimes(1);
+    expect(myPlugin1).toHaveBeenCalledBefore(myPlugin2);
+    expect(myPlugin2).toHaveBeenCalledBefore(myPlugin3);
   });
 });
