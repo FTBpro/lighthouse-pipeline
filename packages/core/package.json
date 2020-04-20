@@ -15,10 +15,10 @@
     "@babel/core": "7.8.7",
     "@babel/preset-env": "^7.8.7",
     "babel-eslint": "9.0.0",
-    "babel-jest": "^24.5.0",
-    "eslint": "^5.15.1",
+    "babel-jest": "^24.9.0",
+    "eslint": "^5.16.0",
     "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
-    "jest": "^24.5.0"
+    "jest": "^24.9.0"
   },
   "eslintConfig": {
     "extends": "eslint-config-mm"
