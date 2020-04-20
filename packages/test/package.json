@@ -11,16 +11,16 @@
   "author": "Jonathan Tamary <jonathan.t@minutemedia.com>",
   "license": "MIT",
   "dependencies": {
-    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-env": "^7.8.7",
     "@lighthouse-pipeline/core": "^0.0.28",
     "@lighthouse-pipeline/influx-db-writer-plugin": "^0.0.28",
     "@lighthouse-pipeline/s3-writer-plugin": "^0.0.28",
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
     "babel-eslint": "9.0.0",
     "eslint": "^5.15.1",
     "eslint-config-mm": "git+https://github.com/FTBpro/eslint-config-mm.git#v2.0",
